@@ -85,6 +85,8 @@ public class StructuredProgram {
 		        }while(kors[i] < 0 || 100 < kors[i]);
 	        
 	        System.out.println("式式式式式式式式式式式式式式式式式式式式式式式式式式式式式");
+	        System.out.println("Test1");
 	    }
+	   
 	    	
 }
