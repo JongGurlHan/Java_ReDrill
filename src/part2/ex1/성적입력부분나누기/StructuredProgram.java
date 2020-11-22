@@ -12,14 +12,14 @@ public class StructuredProgram {
 			
 			while(keepLoop)
 			{
-				menu = 메뉴입력();
+				menu = inputMenu();
 		        
 		        switch(menu) {	        
 		        case 1:		        	
-					성적입력(korList);		        	       
+					inputKors(korList);		        	       
 			        break;
 		        case 2:			        
-		        	성적출력(korList);		        	        	
+		        	printKors(korList);		        	        	
 			        break;
 		        case 3:
 		        	System.out.println("Bye~~");		        	
@@ -32,7 +32,7 @@ public class StructuredProgram {
 			}
 	    }
 		
-		static int 메뉴입력() {
+		static int inputMenu() {
 	    	Scanner scan = new Scanner(System.in);
 	    	
 	    	System.out.println("┌───────────────────────────┐");
@@ -48,7 +48,7 @@ public class StructuredProgram {
 	    }
 		
 		
-	    static void 성적입력 (int[] kors) {
+	    static void inputKors (int[] kors) {
 	    	
 	    	Scanner scan = new Scanner(System.in); //굳이 공유하지 않아도 되는건 공유하지x
 	    	int kor;
@@ -73,7 +73,7 @@ public class StructuredProgram {
 	        System.out.println("─────────────────────────────");
 	    }
 	    
-	    static void 성적출력(int[] kors) {
+	    static void printKors(int[] kors) {
 	    	
 	    	int total = 0;
 			float avg;
