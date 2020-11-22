@@ -5,66 +5,51 @@ public class StructuredProgram {
 
 		static int[] kors = new int[3]; //static을 붙여야 전역변수가 된다
 
+		
+		
+		
 		public static void main(String[] args) {
-	    	
-	        int total = 0;
-	        float avg;
-	        int menu;
-	        boolean keepLoop = true;			
-			
-			Scanner scan = new Scanner(System.in);
+	    			
+			int menu;
+			boolean keepLoop = true;	
 			
 			while(keepLoop)
 			{
-				System.out.println("┌───────────────────────────┐");
-		        System.out.println("│           메인 메뉴                   │");
-		        System.out.println("└───────────────────────────┘");
-		        System.out.println("\t1. 성적입력 ");
-		        System.out.println("\t2. 성적출력 ");
-		        System.out.println("\t3. 종료 ");
-		        System.out.println("\t선택> ");
-		        menu = scan.nextInt();
+				menu = 메뉴입력();
 		        
 		        switch(menu) {	        
-		        case 1:
-		        	
-					성적입력();
-		        	       
+		        case 1:		        	
+					성적입력();		        	       
 			        break;
-		        case 2:
-			        
-			        for(int i=0; i<3; i++)
-			        	total += kors[i];
-			        
-			        avg = total / 3.0f;
-			        
-			        System.out.println("┌───────────────────────────┐");
-			        System.out.println("│           성적  출력                   │");
-			        System.out.println("└───────────────────────────┘");
-			        System.out.println();		        
-			       
-			        for(int i=0;i<3;i++)
-			        	System.out.printf("국어 %d : %3d\n", 3-i, kors[i]);	        	
-			        	        
-			        System.out.printf("총점 : %3d\n", total);
-			        System.out.printf("평균 : %6.2f\n", avg);
-			        System.out.println("─────────────────────────────");
-		        	
+		        case 2:			        
+		        	성적출력();		        	        	
 			        break;
 		        case 3:
-		        	System.out.println("Bye~~");
-		        	
+		        	System.out.println("Bye~~");		        	
 		        	keepLoop = false;
-					break;
-		        
+					break;		        
 		        default:
-		        	System.out.println("잘못된 값을 입력하셨습니다. 메뉴는 1~3까지입니다.");
-		       
+		        	System.out.println("잘못된 값을 입력하셨습니다. 메뉴는 1~3까지입니다.");		       
 		        }
 		        
 			}
 	    }
-	    
+		static int 메뉴입력() {
+	    	Scanner scan = new Scanner(System.in);
+	    	
+	    	System.out.println("┌───────────────────────────┐");
+	        System.out.println("│           메인 메뉴                   │");
+	        System.out.println("└───────────────────────────┘");
+	        System.out.println("\t1. 성적입력 ");
+	        System.out.println("\t2. 성적출력 ");
+	        System.out.println("\t3. 종료 ");
+	        System.out.println("\t선택> ");
+	        int menu = scan.nextInt();
+	        
+	        return menu;
+	    }
+		
+		
 	    static void 성적입력 () {
 	    	
 	    	Scanner scan = new Scanner(System.in); //굳이 공유하지 않아도 되는건 공유하지x
@@ -87,6 +72,31 @@ public class StructuredProgram {
 	        System.out.println("─────────────────────────────");
 	        System.out.println("Test1");
 	    }
+	    
+	    static void 성적출력() {
+	    	
+	    	int total = 0;
+			float avg;
+			
+	    	for(int i=0; i<3; i++)
+	        	total += kors[i];
+	        
+	        avg = total / 3.0f;
+	        
+	        System.out.println("┌───────────────────────────┐");
+	        System.out.println("│           성적  출력                   │");
+	        System.out.println("└───────────────────────────┘");
+	        System.out.println();		        
+	       
+	        for(int i=0;i<3;i++)
+	        	System.out.printf("국어 %d : %3d\n", 3-i, kors[i]);	        	
+	        	        
+	        System.out.printf("총점 : %3d\n", total);
+	        System.out.printf("평균 : %6.2f\n", avg);
+	        System.out.println("─────────────────────────────");
+	    }
+	    
+	    
 	   
 	    	
 }
