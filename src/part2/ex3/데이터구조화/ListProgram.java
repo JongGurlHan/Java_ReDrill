@@ -22,7 +22,7 @@ public class ListProgram {
 				inputList(list);		        	       
 		        break;
 	        case 2:			        
-	        	printList(list);		        	        	
+	        	printList(list, 2);		        	        	
 		        break;
 	        case 3:
 	        	System.out.println("Bye~~");		        	
@@ -91,22 +91,40 @@ public class ListProgram {
 	        exam.eng = eng;
 	        exam.math = math;
 	        
-	        if(!exams의 공간이 있는지) {
-	        	공간을 늘려주기
+	        Exam[] exams = list.exams;
+	        int size = list.current;
+	        
+	        if(exams.length == size) {
+	        	//1 크기가 5개 더 큰  새로운 배열을 생성하시오
+	        	Exam[] temp = new Exam[size + 5];
+	        	
+	        	//2. 값을 이주시키기	        	
+	        	for(int i = 0; i<size; i++) {
+	        		temp[i] = exams[i];
+	        	}
+	        	
+	        	//3.  list.exams가  새로 만든 temp배열을 참조하도록 한다.
+	        	list.exams = temp;
+	        	
+	        	
 	        }
 	        
 	        list.exams[list.current] = exam;
 	        list.current++;
 	}
 		
-		
+	//똑같은 함수를 중복 구현 했을경우 코드집중화를 한다.	
 	private static void printList(ExamList list) {
+		printList(list, list.current);
+	}
+	
+	private static void printList(ExamList list, int size) {
 		System.out.println("┌───────────────────────────┐");
 		System.out.println("│           성적  출력                   │");
 		System.out.println("└───────────────────────────┘");
 		System.out.println();
 		
-		int size = list.current;
+		//int size = list.current;
 		Exam[] exams = list.exams;
 		
 		for(int i = 0; i<size; i++) {
