@@ -4,11 +4,10 @@ import java.util.Scanner;
 
 public class ExamList {
 	
-	Exam[] exams;
-	int current;
+	private Exam[] exams;
+	private int current;	
 	
-	
-	void inputList() {
+	public void inputList() {
 		Scanner scan = new Scanner(System.in); 
     	
     	System.out.println("┌───────────────────────────┐");
@@ -74,11 +73,11 @@ public class ExamList {
 	}
 		
 	//똑같은 함수를 중복 구현 했을경우 코드집중화를 한다.	
-	 void printList() {
+	public void printList() {
 		printList(current);
 	}
 	
-	 void printList(int size) {
+	public void printList(int size) {
 		System.out.println("┌───────────────────────────┐");
 		System.out.println("│           성적  출력                   │");
 		System.out.println("└───────────────────────────┘");
